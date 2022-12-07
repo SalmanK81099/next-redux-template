@@ -12,7 +12,7 @@ const middlewares = [process.env.NODE_ENV === 'development' && logger, thunk];
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: [],
+  whitelist: [],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

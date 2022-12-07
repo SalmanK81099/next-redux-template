@@ -8,6 +8,7 @@ import {
   increment,
   resetCount,
   setCount,
+  setCountStartAsync,
 } from '../store/counter/counter.action';
 import { selectCountReducer } from '../store/counter/counter.selector';
 
@@ -17,26 +18,12 @@ export default function Home() {
 
   const setCustomCountHandler = () => {
     // console.log(Number(customCount));
-    dispatch(setCount(Number(customCount)));
+    dispatch(setCountStartAsync(Number(customCount)));
   };
 
   return (
     <div>
       <Display />
-      <button
-        onClick={() => {
-          dispatch(increment());
-        }}
-      >
-        Increment
-      </button>
-      <button
-        onClick={() => {
-          dispatch(decrement());
-        }}
-      >
-        Decrement
-      </button>
 
       <input
         placeholder={'Set Count'}
@@ -44,14 +31,6 @@ export default function Home() {
         type={'number'}
       />
       <button onClick={setCustomCountHandler}>Set Count</button>
-
-      <button
-        onClick={() => {
-          dispatch(resetCount());
-        }}
-      >
-        reset Count
-      </button>
     </div>
   );
 }
